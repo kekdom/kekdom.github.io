@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Natural Beauty</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="ContactUs.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<header>
+        <nav class="nav-bar">
+            <!-- Brand Logo/Name -->
+            <div class="nav-left">
+                <a href="index.html" aria-label="Home">
+                    <i class="fas fa-leaf"></i>
+                    Hiraya
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navigation Menu -->
+            <div class="nav-menu">
+                <a href="index.html" class="active">Home</a>
+                <a href="index.html #products">Products</a>
+                <a href="AboutUs.html">About</a>
+                <a href="ContactUs.html">Contact Us</a>
+            </div>
+
+              <!-- User Actions -->
+            <div class="nav-icons">
+                <!-- Shopping Cart -->
+                <div class="cart-icon" role="button" tabindex="0" aria-label="Shopping cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count" aria-label="Items in cart">0</span>
+                    <div id="cart-dropdown" class="cart-dropdown">
+                        <!-- Cart items will be loaded here -->
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-basket"></i>
+                            <p>Your cart is empty</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- User Account -->
+                <a href="login.html" class="user-icon" aria-label="User account">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+<body>
+    <section id="contact" class="contact-wrapper">
+        <div class="contact-section">
+            <div class="contact-box">
+                <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+                <p class="contact-intro">We'd love to hear from you! Please fill out the form below and we'll get back to you as soon as possible.</p>
+                
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name <span class="required">*</span></label>
+                        <input type="text" 
+                               id="name" 
+                               placeholder="Enter your name"
+                               required 
+                               autocomplete="name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" 
+                               id="email" 
+                               placeholder="your@email.com"
+                               required 
+                               autocomplete="email" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" 
+                               id="phone" 
+                               placeholder="+63 XXX XXX XXXX"
+                               pattern="[\+]?[0-9]{11,13}"
+                               title="Please enter a valid Philippine phone number"
+                               autocomplete="tel" />
+                        <small class="helper-text">Optional - Include country code (e.g., +63)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject <span class="required">*</span></label>
+                        <select id="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="product">Product Inquiry</option>
+                            <option value="order">Order Status</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="support">Customer Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message <span class="required">*</span></label>
+                        <textarea id="message" 
+                                  rows="5" 
+                                  placeholder="How can we help you?"
+                                  required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+
+                <div class="contact-info">
+                    <h3><i class="fas fa-map-marker-alt"></i> Visit Us</h3>
+                    <p>123 San Mario Street<br>Dasmariñas, Cavite<br>Philippines</p>
+                    
+                    <h3><i class="fas fa-phone"></i> Call Us</h3>
+                    <p><a href="tel:+63123456789">+63 123 456 789</a></p>
+                    
+                    <h3><i class="fas fa-envelope"></i> Email Us</h3>
+                    <p><a href="mailto:contact@naturalbeauty.ph">contact@naturalbeauty.ph</a></p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- Footer -->
+       <footer class="site-footer">
+  <div class="footer-brand">
+    <i class="fas fa-leaf"></i>
+    <span>Hiraya</span>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Hiraya — We love, We care.</p>
+  </div>
+</footer>
+
+    <script src="js/contact.js"></script>
+</body>
+</html>

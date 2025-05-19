@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Natural Beauty</title>
+    <link rel="stylesheet" href="AboutUs.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="nav-bar">
+            <!-- Brand Logo/Name -->
+            <div class="nav-left">
+                <a href="index.html" aria-label="Home">
+                    <i class="fas fa-leaf"></i>
+                    Hiraya
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navigation Menu -->
+            <div class="nav-menu">
+                <a href="index.html" class="active">Home</a>
+                <a href="index.html #products">Products</a>
+                <a href="AboutUs.html">About</a>
+                <a href="ContactUs.html">Contact Us</a>
+                </div>
+            </div>
+
+              <!-- User Actions -->
+            <div class="nav-icons">
+                <!-- Shopping Cart -->
+                <div class="cart-icon" role="button" tabindex="0" aria-label="Shopping cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count" aria-label="Items in cart">0</span>
+                    <div id="cart-dropdown" class="cart-dropdown">
+                        <!-- Cart items will be loaded here -->
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-basket"></i>
+                            <p>Your cart is empty</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- User Account -->
+                <a href="login.html" class="user-icon" aria-label="User account">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="video-container">
+            <img src="PicturesSoap/White Modern Skincare Products Presentation.png" alt="About Us Video" class="video-thumbnail">
+        </div>
+
+        <div class="about-content">
+            <h3 class="about-heading">About Us</h3>
+            <h2 class="about-subheading">Our Story</h2>
+            <p>
+                "Hiraya" is a deep Filipino word that means hope or a vision. Inspired by this, our website was created to fulfill a vision: to make beauty and body care shopping easier, more accessible, and more enjoyable for everyone.
+            </p>
+            <p>
+                At Hiraya, we bring together a wide range of local and international products in one platforms; desgined for those who value convenience, quality, and affordability.
+            </p>
+            <ul class="about-features">
+                <li><i class="fas fa-check"></i> One-Stop Convenience </li>
+                <li><i class="fas fa-check"></i> Wider Selection </li>
+                <li><i class="fas fa-check"></i> Affordable Prices</li>
+                <li><i class="fas fa-check"></i> User-Friendly & Aesthetic Interface </li>
+            </ul>
+            <p>
+                Join us in our mission to make beauty products that are kind to your skin and our planet.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+       <footer class="site-footer">
+  <div class="footer-brand">
+    <i class="fas fa-leaf"></i>
+    <span>Hiraya</span>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Hiraya — We love, We care.</p>
+  </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="js/cart.js"></script>
+    <script src="js/ecommerce.js"></script>
+
+    <!-- Notification Container -->
+    <div id="notification-container" class="notification-container" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Hiraya</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .confirmation-container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        .confirmation-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .success-icon {
+            color: #28a745;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .order-number {
+            color: #0E0C0A;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .order-details {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .order-items {
+            margin: 20px 0;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            gap: 15px;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .order-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-details h4 {
+            margin: 0 0 5px;
+            color: #0E0C0A;
+            font-size: 16px;
+        }
+
+        .item-details p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .shipping-info {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .shipping-info h3 {
+            color: #0E0C0A;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .shipping-info p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .total-info {
+            border-top: 2px solid #eee;
+            margin-top: 20px;
+            padding-top: 20px;
+        }
+
+        .total-info h3 {
+            color: #0E0C0A;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .total-row.final {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0E0C0A;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .continue-shopping {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: #0E0C0A;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+            font-weight: 500;
+        }
+
+        .continue-shopping:hover {
+            background-color: #a77862;
+        }
+
+        .view-orders {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 24px;
+            background-color: transparent;
+            color: #0E0C0A;
+            text-decoration: none;
+            border: 1px solid #0E0C0A;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .view-orders:hover {
+            background-color: #0E0C0A;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .confirmation-container {
+                padding: 10px;
+            }
+
+            .confirmation-box {
+                padding: 20px;
+            }
+
+            .order-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .order-item img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .item-details {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+            <div class="nav-left">
+                <a href="index.html" aria-label="Home">
+                    <i class="fas fa-leaf"></i>
+                    Hiraya
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#products">Products</a>
+                <a href="AboutUs.html">About</a>
+                <a href="ContactUs.html">Contact Us</a>
+            </div>
+            <div class="nav-icons">
+                <div class="user-menu">
+                    <a href="profile.html" class="user-icon" aria-label="User account">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="confirmation-container">
+        <div class="confirmation-box">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h1>Thank You for Your Order!</h1>
+            <p class="order-number">Order #: <span id="order-id"></span></p>
+            <p>We've received your order and will begin processing it right away.</p>
+            
+            <div class="order-details">
+                <h2>Order Details</h2>
+                <div class="order-items" id="order-items">
+                    <!-- Order items will be populated here -->
+                </div>
+                
+                <div class="shipping-info" id="shipping-info">
+                    <h3>Shipping Information</h3>
+                    <!-- Shipping details will be populated here -->
+                </div>
+                
+                <div class="total-info">
+                    <h3>Order Summary</h3>
+                    <div id="order-summary">
+                        <!-- Order summary will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <a href="index.html#products" class="continue-shopping">Continue Shopping</a>
+            <br>
+            <a href="orders.html" class="view-orders">View All Orders</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderDetails = JSON.parse(sessionStorage.getItem('lastOrder'));
+            
+            if (!orderDetails) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Display order ID
+            document.getElementById('order-id').textContent = orderDetails.orderId;
+
+            // Display order items
+            const orderItemsContainer = document.getElementById('order-items');
+            orderItemsContainer.innerHTML = orderDetails.items.map(item => `
+                <div class="order-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="item-details">
+                        <h4>${item.name}</h4>
+                        <p>Quantity: ${item.quantity}</p>
+                        <p>Price: ₱${(item.price * item.quantity).toFixed(2)}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            // Display shipping information
+            const shippingInfo = document.getElementById('shipping-info');
+            const shipping = orderDetails.shipping;
+            shippingInfo.innerHTML = `
+                <h3>Shipping Information</h3>
+                <p>${shipping.fullName}</p>
+                <p>${shipping.address}</p>
+                <p>${shipping.city}, ${shipping.state} ${shipping.zip}</p>
+                <p>${shipping.email}</p>
+                <p>${shipping.phone}</p>
+            `;
+
+            // Display order summary
+            const orderSummary = document.getElementById('order-summary');
+            orderSummary.innerHTML = `
+                <div class="total-row">
+                    <span>Subtotal</span>
+                    <span>₱${orderDetails.subtotal.toFixed(2)}</span>
+                </div>
+                <div class="total-row">
+                    <span>Shipping</span>
+                    <span>₱${orderDetails.shipping.toFixed(2)}</span>
+                </div>
+                <div class="total-row final">
+                    <span>Total</span>
+                    <span>₱${orderDetails.total.toFixed(2)}</span>
+                </div>
+            `;
+
+            // Clear the order details from session storage after displaying
+            sessionStorage.removeItem('lastOrder');
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Information -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Natural Beauty Products - Handcrafted skincare products made with love and care">
+    <meta name="keywords" content="natural beauty, skincare, organic, handmade, soap, lotion, shampoo">
+    
+    <title>Hiraya - We Love, We Care</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Preconnect to CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+</head>
+<body>
+<header>
+        <nav class="nav-bar">
+            <!-- Brand Logo/Name -->
+            <div class="nav-left">
+                <a href="index.html" aria-label="Home">
+                    <i class="fas fa-leaf"></i>
+                    Hiraya
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+<!-- CHANGES May 18 @8:40pm -->
+            <!-- Navigation Menu -->
+            <div class="nav-menu">
+                <a href="index.html" class="active">Home</a>
+                <a href="AboutUs.html">About</a>
+                <a href="index.html #products">Products</a>
+                <a href="ContactUs.html">Contact Us</a>
+
+                <div class="search-container">
+                    <input type="text" 
+                           class="search-input" 
+                           placeholder="Search products..."
+                           aria-label="Search products">
+                    <i class="fas fa-search search-icon"></i>
+                    <div class="search-results" aria-live="polite"></div>
+                </div>
+            </div>
+
+              <!-- User Actions -->
+            <div class="nav-icons">
+                <!-- Shopping Cart -->
+                <div class="cart-icon" role="button" tabindex="0" aria-label="Shopping cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count" aria-label="Items in cart">0</span>
+                    <div id="cart-dropdown" class="cart-dropdown">
+                        <!-- Cart items will be loaded here -->
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-basket"></i>
+                            <p>Your cart is empty</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- User Account -->
+                <div class="user-menu">
+                    <a href="login.html" class="user-icon" aria-label="User account">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div class="user-dropdown">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user-circle"></i>
+                            Profile
+                        </a>
+                        <a href="orders.html" class="dropdown-item">
+                            <i class="fas fa-box"></i>
+                            Orders
+                        </a>
+                        <button onclick="window.logout()" class="dropdown-item logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+    <div class="hero-section">
+
+      <!-- Background Slider -->
+      <div class="bg-slides">
+        <img src="OOP 1st draft/products pics/HEADERPIC_2.png" class="bg-slide active">
+        <img src="2NDHEADLINE.png" class="bg-slide active">
+        <img src="3RDHEADLINE.png" class="bg-slide active">
+      </div>
+
+      <!-- Overlay Button -->
+      <div class="content">
+        <button class="shop-button" onclick="location.href='#products'" aria-label="Shop now">
+          <span>Shop Now</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <button class="arrow left" onclick="prevSlide()">&#10094;</button>
+      <button class="arrow right" onclick="nextSlide()">&#10095;</button>
+
+    </div>
+  </main>
+</section>
+<!-- also added -->
+<!-- JS Logic -->
+<script>
+  let currentSlide = 0;
+  const slidesContainer = document.querySelector('.bg-slides');
+  const slides = document.querySelectorAll('.bg-slide');
+
+  function updateSlidePosition() {
+    slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateSlidePosition();
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlidePosition();
+  }
+
+  document.addEventListener('DOMContentLoaded', updateSlidePosition);
+</script>
+<!-- moved teh about section -->
+ <!-- About Section -->
+    <section class="about-section">
+        <div class="video-container">
+            <img src="PicturesSoap/White Modern Skincare Products Presentation.png" alt="About Us Video Thumbnail" class="video-thumbnail">
+        </div>
+        <div class="about-content">
+            <h3 class="about-heading">About Us</h3>
+            <h2 class="about-subheading">Natural Beauty for Everyone</h2>
+            <p>We create handmade natural beauty products using only the finest ingredients. Our commitment to quality and sustainability ensures that you get the best for your skin while being kind to the environment.</p>
+            <button class="explore-button" onclick="location.href='AboutUs.html'" aria-label="Learn more about us">
+                <span>Explore More</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </section>
+<!-- Products Section -->
+    <section id="products" class="products-page">
+        <h2 class="section-title">Recommended Products</h2>
+        
+        <!-- Product Filters -->
+        <div class="product-filters" role="group" aria-label="Product filters">
+            <button class="filter-btn active" data-category="all">
+                <i class="fas fa-border-all"></i>
+                All Products
+            </button>
+            <button class="filter-btn" data-category="soap">
+                <i class="fas fa-soap"></i>
+                Skincare
+            </button>
+            <button class="filter-btn" data-category="lotion">
+                <i class="fas fa-pump-soap"></i>
+                Bodycare
+            </button>
+            <button class="filter-btn" data-category="shampoo">
+                <i class="fas fa-shower"></i>
+                Haircare
+            </button>
+            <button class="filter-btn" data-category="other">
+                <i class="fas fa-spa"></i>
+                Others
+            </button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" role="list" aria-label="Product list">
+            <!-- Products will be dynamically loaded here -->
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i>
+            <span class="sr-only">Loading products...</span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+       <footer class="site-footer">
+  <div class="footer-brand">
+    <i class="fas fa-leaf"></i>
+    <span>Hiraya</span>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Hiraya — We love, We care.</p>
+  </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/ecommerce.js"></script>
+    <script src="js/products-filter.js"></script>
+    
+    <!-- Notification Container -->
+    <div id="notification-container" class="notification-container" aria-live="polite"></div>
+
+    <style>
+          .hidden {
+     display: none;
+     }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card {
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: slideIn 0.3s ease-out, slideOut 0.3s ease-out 2.7s;
+            z-index: 1000;
+        }
+
+        .notification.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-details {
+            padding: 1.5rem;
+        }
+
+        .product-details h3 {
+            color: #0e0e0e;
+            margin: 0 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            min-height: 40px;
+        }
+
+        .product-price {
+            color: #0e0e0e;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #0e0e0e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #a77862;
+        }
+
+        .loading-spinner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+
+        .loading-spinner i {
+            font-size: 3rem;
+            color: #1f4a26;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</body>
+</html>
